@@ -1,52 +1,50 @@
 "use client";
-
+import Card from "./Card";
 import React, { useState, useEffect } from "react";
 import { mockCards } from "@/app/api/cards/route";
 import Filter from "@/components/Filter";
+import ReactPaginate from "react-paginate";
+import FilteredCardList from "./FilteredCardList";
 
 const MidSection = () => {
-  const [cards, setCards] = useState<any[]>(mockCards || []);
-  const [filteredCards, setFilteredCards] = useState<any[]>(mockCards || []);
+  // const ITEMS_PER_PAGE = 8;
+  // const [cards, setCards] = useState<any[]>(mockCards || []);
+  // const [filteredCards, setFilteredCards] = useState<any[]>(mockCards || []);
+  // const [currentPage, setCurrentPage] = useState(0);
 
   // Filter Logic
-  const handleFilterChange = ({ subject, type }: { subject: string; type: string }) => {
-    let filtered = [...cards];
+  // const handleFilterChange = ({ subject, type }: { subject: string; type: string }) => {
+  //   let filtered = [...cards];
 
-    if (subject) {
-      filtered = filtered.filter((card) => card.subject === subject);
-    }
+  //   if (subject) {
+  //     filtered = filtered.filter((card) => card.subject === subject);
+  //   }
 
-    if (type) {
-      filtered = filtered.filter((card) => card.type === type);
-    }
+  //   if (type) {
+  //     filtered = filtered.filter((card) => card.type === type);
+  //   }
 
-    setFilteredCards(filtered);
-  };
+  //   setFilteredCards(filtered);
+  //   setCurrentPage(0); // Reset to first page on filter change
+  // };
 
   // Initial Load
-  useEffect(() => {
-    setFilteredCards(cards);
-  }, [cards]);
+  // useEffect(() => {
+  //   setFilteredCards(cards);
+  // }, [cards]);
+
+  // Pagination Logic
+  // const totalPages = Math.ceil(filteredCards.length / ITEMS_PER_PAGE);
+  // const currentCards = filteredCards.slice(currentPage * ITEMS_PER_PAGE, (currentPage + 1) * ITEMS_PER_PAGE);
 
   return (
-    <div>
-      
+    <div className=" bg-[#F5F3EF]">
 
-      {/* Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
-        {filteredCards.length > 0 ? (
-          filteredCards.map((card) => (
-            <div key={card.id} className="border p-4 rounded-md shadow">
-              <h2 className="text-xl font-semibold">{card.subject}</h2>
-              <p>Type: {card.type}</p>
-              <p>Word Count: {card.words}</p>
-            </div>
-          ))
-        ) : (
-          <p>No results found.</p>
-        )}
-      </div>
-      <Filter onFilterChange={handleFilterChange} />
+      <FilteredCardList />
+
+
+
+
     </div>
   );
 };

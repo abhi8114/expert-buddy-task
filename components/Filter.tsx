@@ -18,9 +18,9 @@ export default function Filter({ onFilterChange }: FilterProps) {
   };
 
   return (
-    <div className="bg-white shadow-md rounded-lg p-6 max-w-xs">
+    <div className="bg-white shadow-md rounded-2xl p-6 max-w-xs ">
       {/* Type of Work */}
-      <label className="block text-gray-700 font-medium">Type of work</label>
+      <label className="block text-gray-700 font-medium pb-2">Type of work</label>
       <select
         value={selectedType}
         onChange={(e) => setSelectedType(e.target.value)}
@@ -34,7 +34,7 @@ export default function Filter({ onFilterChange }: FilterProps) {
       </select>
 
       {/* Subject */}
-      <label className="block text-gray-700 font-medium">Subject</label>
+      <label className="block text-gray-700 font-medium pb-2">Subject</label>
       <select
         value={selectedSubject}
         onChange={(e) => setSelectedSubject(e.target.value)}
@@ -48,7 +48,7 @@ export default function Filter({ onFilterChange }: FilterProps) {
       </select>
 
       {/* Words */}
-      <label className="block text-gray-700 font-medium">Words</label>
+      <label className="block text-gray-700 font-medium pb-2">Words</label>
       <input
         type="range"
         min="275"
