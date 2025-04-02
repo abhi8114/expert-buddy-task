@@ -1,6 +1,7 @@
 "use client";
 import { UserButton, SignInButton, SignUpButton, useUser } from "@clerk/nextjs";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function SearchPageNavbar() {
   const { isSignedIn } = useUser(); // Check if user is signed in
@@ -11,8 +12,9 @@ export default function SearchPageNavbar() {
       <div className="flex items-center gap-6">
         {/* Logo */}
         <div className="flex items-center gap-2">
+          <Link href="/">
           <Image src="/logo.svg" alt="Buddy Logo" width={120} height={40} />
-         
+          </Link>
         </div>
 
         {/* Navigation Links */}

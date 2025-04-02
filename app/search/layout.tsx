@@ -9,13 +9,13 @@ interface LayoutProps {
 
 export default function Layout({ children }: LayoutProps) {
   return (
-    <div className="min-h-screen flex flex-col ">
+    <div className=" ">
       {/* Navbar */}
       <SearchPageNavbar />
       <StudyBankSection />
 
       {/* Main Content */}
-      <main className="flex-grow pt-20">
+      <main className="flex-grow ">
         <div className="">{children}</div>
       </main>
 
