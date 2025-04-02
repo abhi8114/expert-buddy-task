@@ -1,24 +1,31 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 interface FilterProps {
+  initialFilters?: { subject?: string; type?: string; words?: number[] };
   onFilterChange: (filters: { subject: string; type: string; words: number[] }) => void;
 }
 
-export default function Filter({ onFilterChange }: FilterProps) {
-  const [selectedSubject, setSelectedSubject] = useState<string>("Accounting");
-  const [selectedType, setSelectedType] = useState<string>("");
-  const [wordRange, setWordRange] = useState<[number, number]>([275, 550000]);
+export default function Filter({ initialFilters, onFilterChange }: FilterProps) {
+  const [selectedSubject, setSelectedSubject] = useState<string>(initialFilters?.subject || "Accounting");
+  const [selectedType, setSelectedType] = useState<string>(initialFilters?.type || "");
+  const [wordRange, setWordRange] = useState<[number, number]>(initialFilters?.words || [275, 550000]);
 
   const subjects = ["Accounting", "Mathematics", "Science", "History", "English"];
   const types = ["All Project Types", "Essay", "Report", "Article"];
+
+  useEffect(() => {
+    setSelectedSubject(initialFilters?.subject || "Accounting");
+    setSelectedType(initialFilters?.type || "");
+    setWordRange(initialFilters?.words || [275, 550000]);
+  }, [initialFilters]);
 
   const handleFilterChange = () => {
     onFilterChange({ subject: selectedSubject, type: selectedType, words: wordRange });
   };
 
   return (
-    <div className="bg-white shadow-md rounded-2xl p-6 max-w-xs ">
+    <div className="bg-white shadow-md rounded-2xl p-6 max-w-xs">
       {/* Type of Work */}
       <label className="block text-gray-700 font-medium pb-2">Type of work</label>
       <select
@@ -59,18 +66,8 @@ export default function Filter({ onFilterChange }: FilterProps) {
       />
       
       <div className="flex justify-between mb-2">
-        <input
-          type="text"
-          value={`From ${wordRange[0]}`}
-          className="border p-2 rounded-md text-center w-1/2 mr-2"
-          disabled
-        />
-        <input
-          type="text"
-          value={`To ${wordRange[1]}`}
-          className="border p-2 rounded-md text-center w-1/2"
-          disabled
-        />
+        <input type="text" value={`From ${wordRange[0]}`} className="border p-2 rounded-md text-center w-1/2 mr-2" disabled />
+        <input type="text" value={`To ${wordRange[1]}`} className="border p-2 rounded-md text-center w-1/2" disabled />
       </div>
 
       <p className="text-sm text-gray-500 mb-4">1 Page = 275 Words</p>
