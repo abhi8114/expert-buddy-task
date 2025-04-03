@@ -8,7 +8,7 @@ import FilteredCardList from "./FilteredCardList";
 
 const MidSection = () => {
   return (
-    <div className=" bg-[#F5F3EF]">
+    <div className=" ">
 
       <FilteredCardList />
 

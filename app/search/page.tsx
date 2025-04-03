@@ -4,8 +4,11 @@ import { useEffect, useState } from "react";
 import ReactPaginate from "react-paginate";
 import Filter from "@/components/Filter";
 import Card from "@/components/Card";
+import { mockCards } from "@/data";
 
 const ITEMS_PER_PAGE = 6; // Number of items per page
+
+
 
 export default function SearchResults() {
   const searchParams = useSearchParams();
@@ -14,20 +17,15 @@ export default function SearchResults() {
   const [filteredCards, setFilteredCards] = useState<any[]>([]);
   const [currentPage, setCurrentPage] = useState(0);
 
-  // Fetch data based on query
+  // Filter data based on query
   useEffect(() => {
-    async function fetchData() {
-      const res = await fetch("/api/cards");
-      const data = await res.json();
-      const filtered = data.filter(
-        (card: any) =>
-          card.subject.toLowerCase().includes(query.toLowerCase()) ||
-          card.type.toLowerCase().includes(query.toLowerCase())
-      );
-      setResults(filtered);
-      setFilteredCards(filtered); // Initialize with fetched results
-    }
-    fetchData();
+    const filtered = mockCards.filter(
+      (card) =>
+        card.subject.toLowerCase().includes(query.toLowerCase()) ||
+        card.type.toLowerCase().includes(query.toLowerCase())
+    );
+    setResults(filtered);
+    setFilteredCards(filtered);
   }, [query]);
 
   // Handle Filter Changes
@@ -56,8 +54,8 @@ export default function SearchResults() {
 
   return (
     <div className="pt-20 bg-[#F5F3EF] p-6">
-      <h1 className="text-2xl font-bold mb-4"> Results for "{query}"</h1>
-      <h4> {filteredCards.length} results</h4>
+      <h1 className="text-2xl font-bold mb-4">Results for "{query}"</h1>
+      <h4>{filteredCards.length} results</h4>
       <div className="flex max-w-[1200px] mx-auto">
         {/* Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4 w-[65%]">

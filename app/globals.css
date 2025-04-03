@@ -1,3 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+
 @import "tailwindcss";
 
 
+
+@tailwind utilities;
+
+@import "slick-carousel/slick/slick.css";
+@import "slick-carousel/slick/slick-theme.css";
+
+
+.font-manrope {
+  font-family: "Manrope", sans-serif;
+}
+.dm-sans {
+  font-family: 'DM Sans', sans-serif;
+}

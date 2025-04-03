@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 export default function SearchBar() {
   const [query, setQuery] = useState("");
@@ -13,17 +14,29 @@ export default function SearchBar() {
   };
 
   return (
-    <div className="flex gap-2">
-      <input
-        type="text"
-        placeholder="Search by topic, type..."
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
-        className="border p-2 rounded-md"
-      />
-      <button onClick={handleSearch} className="bg-blue-500 text-white p-2 rounded-md">
-        Search
-      </button>
-    </div>
+    <div className="flex items-center bg-white rounded-full shadow-md px-2 md:px-6 py-2 w-auto md:max-w-lg mt-8">
+  
+  <span className="hidden md:block">
+    <Image src="/search.svg" alt="search icon" width={20} height={100} />
+  </span>
+
+  {/* Search Input */}
+  <input
+    type="text"
+    placeholder="Find any type of work, topic, etc."
+    value={query}
+    onChange={(e) => setQuery(e.target.value)}
+    className="flex-grow bg-transparent outline-none text-lg text-[#6B7B93] px-2 dm-sans"
+  />
+
+  {/* Search Button */}
+  <button
+    onClick={handleSearch}
+    className="bg-gray-900 text-white px-6 py-2 rounded-full"
+  >
+    Search
+  </button>
+</div>
+
   );
 }
