@@ -1,7 +1,6 @@
 "use client";
 
 import Slider from "react-slick";
-import { FaArrowLeft, FaArrowRight, FaFileAlt } from "react-icons/fa";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { mockCards } from "@/data";
