@@ -61,7 +61,7 @@ export default function SearchResults() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4 w-[65%]">
           {currentCards.length > 0 ? (
             currentCards.map((card) => (
-              <Card key={card.id} subject={card.subject} type={card.type} words={card.words} content={card.content} />
+              <Card key={card.id} id={card.id} subject={card.subject} type={card.type} words={card.words} content={card.content} />
             ))
           ) : (
             <p className="text-center col-span-2">No results found.</p>
