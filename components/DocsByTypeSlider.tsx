@@ -9,7 +9,11 @@ const categories = [
   "Geometry Tutors", "Writing Tutor", "Geometry Tutors", "German Tutors", "GMAT Tutors"
 ];
 
-const PrevArrow = ({ onClick }) => (
+interface ArrowProps {
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
+}
+
+const PrevArrow: React.FC<ArrowProps> = ({ onClick }) => (
   <button
     onClick={onClick}
     className="absolute -bottom-20 sm:-bottom-16 md:-bottom-26 left-[50%] transform -translate-x-8 sm:-translate-x-10 md:-translate-x-12 bg-white px-2 sm:px-3 md:px-4 py-2 sm:py-3 rounded-md shadow-md text-sm sm:text-base"
@@ -19,7 +23,7 @@ const PrevArrow = ({ onClick }) => (
   </button>
 );
 
-const NextArrow = ({ onClick }) => (
+const NextArrow: React.FC<ArrowProps> = ({ onClick }) => (
   <button
     onClick={onClick}
     className="absolute -bottom-20 sm:-bottom-16 md:-bottom-26 right-[50%] transform translate-x-8 sm:translate-x-10 md:translate-x-12 bg-white px-2 sm:px-3 md:px-4 py-2 sm:py-3 rounded-md shadow-md text-sm sm:text-base"
@@ -42,7 +46,7 @@ export default function DocsByTypeSlider() {
     arrows: true,
     prevArrow: <PrevArrow />,
     nextArrow: <NextArrow />,
-    afterChange: (current) => setActiveIndex(current),
+    afterChange: (current: number) => setActiveIndex(current),
     responsive: [
       { 
         breakpoint: 1024, 
@@ -69,7 +73,7 @@ export default function DocsByTypeSlider() {
   };
 
   return (
-    <div className="  w-[310px] md:w-[90%] lg:w-[80%] xl:w-[58%] py-10 sm:py-14 md:py-20 mx-4 sm:mx-6 lg:mx-8 xl:mx-30 relative">
+    <div className="w-[310px] md:w-[90%] lg:w-[80%] xl:w-[58%] py-10 sm:py-14 md:py-20 mx-4 sm:mx-6 lg:mx-8 xl:mx-30 relative">
       <Image
         src="/vector.svg"
         alt="Vector"

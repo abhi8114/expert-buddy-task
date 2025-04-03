@@ -2,8 +2,16 @@
 import { useState, useEffect } from "react";
 
 interface FilterProps {
-  initialFilters?: { subject?: string; type?: string; words?: number[] };
-  onFilterChange: (filters: { subject: string; type: string; words: number[] }) => void;
+  initialFilters?: {
+    subject?: string;
+    type?: string;
+    words?: [number, number]; // Changed to tuple type
+  };
+  onFilterChange: (filters: { 
+    subject: string; 
+    type: string; 
+    words: [number, number] // Changed to tuple type
+  }) => void;
 }
 
 export default function Filter({ initialFilters, onFilterChange }: FilterProps) {
@@ -21,7 +29,15 @@ export default function Filter({ initialFilters, onFilterChange }: FilterProps) 
   }, [initialFilters]);
 
   const handleFilterChange = () => {
-    onFilterChange({ subject: selectedSubject, type: selectedType, words: wordRange });
+    onFilterChange({ 
+      subject: selectedSubject, 
+      type: selectedType, 
+      words: wordRange 
+    });
+  };
+
+  const handleWordRangeChange = (value: number) => {
+    setWordRange([275, value]); // Explicitly creating a tuple
   };
 
   return (
@@ -61,13 +77,23 @@ export default function Filter({ initialFilters, onFilterChange }: FilterProps) 
         min="275"
         max="550000"
         value={wordRange[1]}
-        onChange={(e) => setWordRange([275, parseInt(e.target.value)])}
+        onChange={(e) => handleWordRangeChange(parseInt(e.target.value))}
         className="w-full mb-2 accent-purple-600"
       />
       
       <div className="flex justify-between mb-2">
-        <input type="text" value={`From ${wordRange[0]}`} className="border p-2 rounded-md text-center w-1/2 mr-2" disabled />
-        <input type="text" value={`To ${wordRange[1]}`} className="border p-2 rounded-md text-center w-1/2" disabled />
+        <input 
+          type="text" 
+          value={`From ${wordRange[0]}`} 
+          className="border p-2 rounded-md text-center w-1/2 mr-2" 
+          disabled 
+        />
+        <input 
+          type="text" 
+          value={`To ${wordRange[1]}`} 
+          className="border p-2 rounded-md text-center w-1/2" 
+          disabled 
+        />
       </div>
 
       <p className="text-sm text-gray-500 mb-4">1 Page = 275 Words</p>
