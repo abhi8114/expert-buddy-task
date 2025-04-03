@@ -1,11 +1,11 @@
 "use client";
-import CustomOrderForm from "@/components/CustomOrderForm";
-import CustomWorkOrderForm from "@/components/CustomWorkOrderForm";
-import DocsByType from "@/components/DocsByTypeSlider";
+import CustomWorkOrderForm from "../components/CustomWorkOrderForm";
+import DocsByType from "../components/DocsByTypeSlider";
  // Importing mock API for now
-import NavBar from "@/components/HeroSection";
-import HeroSection from "@/components/HeroSection";
-import MidSection from "@/components/MidSection";
+import NavBar from "../components/HeroSection";
+import HeroSection from "../components/HeroSection";
+import MidSection from "../components/MidSection";
+import CustomOrderForm from "../components/CustomOrderForm";
 
 export default function HomePage() {
   

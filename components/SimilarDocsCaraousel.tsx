@@ -56,7 +56,7 @@ export default function SimilarDocsCaraousel() {
 
                                 <div className="mt-4 border-t pt-3 flex justify-between text-gray-500 text-sm">
                                     <span className="flex items-center gap-1">
-                                        <FaFileAlt className="text-purple-500" /> Words: <b>{doc.words}</b>
+                                         <Image src="/document-copy.png" alt="pages" width={16} height={16} className="w-4 h-4 " />Words: <b>{doc.words}</b>
                                     </span>
                                     <span className="flex items-center gap-1">
                                         📑 Pages: <b>{doc.words.toString().padStart(2, "0")}</b>
@@ -83,7 +83,7 @@ function NextArrow(props: any) {
             className="absolute -bottom-12 left-1/2 translate-x-1 bg-white border border-gray-300 p-3 rounded-lg shadow-lg hover:bg-gray-100"
             onClick={onClick}
         >
-            <FaArrowRight className="text-gray-700" />
+            <Image src="/right-arrow.png" alt="right-arrow" width={20} height={20} />
         </button>
     );
 }
@@ -95,7 +95,7 @@ function PrevArrow(props: any) {
             className="absolute -bottom-12 right-1/2 -translate-x-1 bg-white border border-gray-300 p-3 rounded-lg shadow-lg hover:bg-gray-100"
             onClick={onClick}
         >
-            <FaArrowLeft className="text-gray-700" />
+            <Image src="/left-arrow.png" alt="left-arrow" width={20} height={20} />
         </button>
     );
 }
