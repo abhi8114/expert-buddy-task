@@ -41,7 +41,7 @@ export default function SimilarDocsCaraousel() {
                 alt="Vector"
                 width={60}
                 height={80}
-                className="absolute left-[31%]  "
+                className="absolute left-10 lg:left-[26%]  xl:left-[31%]   "
             />
             <h1 className="mt-8 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-5 md:mb-7 text-center">
                 Similar Documents
