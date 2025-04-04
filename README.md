@@ -1,6 +1,9 @@
 ## Project Overview
 This project is built using **Next.js v15**, implementing a design from Figma and incorporating dynamic functionality. The application is deployed on **Vercel**.
 
+## Deployment
+- **Live URL:** https://expert-buddy-task-ad1u.vercel.app/
+
 ## Tech Stack
 - **Framework:** Next.js v15
 - **Styling:** Tailwind CSS
